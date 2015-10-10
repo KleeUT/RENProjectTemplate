@@ -1,12 +1,15 @@
 require('bootstrap-webpack');
 var React = require('react');
 var ReactDOM = require('react-dom');
-// var argh = require('./second.js');
 var Root = require('./root.jsx');
+import { Router, Route, Link } from 'react-router'
+
 
 
  ReactDOM.render(
-   <Root />,
+   <Router>
+    <Route path="/" component={Root}>
+    </Route>
+   </Router>,
    document.getElementById('body')
  )
-// argh();
