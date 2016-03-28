@@ -1,15 +1,13 @@
 require('bootstrap-webpack');
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Root = require('./root.jsx');
-import { Router, Route, Link } from 'react-router'
-
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Root from './Root.jsx';
+import { Router, Route, Link, hashHistory } from 'react-router'
 
  ReactDOM.render(
-   <Router>
-    <Route path="/" component={Root}>
-    </Route>
-   </Router>,
+    <Router history={hashHistory}>  
+        <Route path="/" component={Root}>
+        </Route>
+    </Router>,
    document.getElementById('body')
  )

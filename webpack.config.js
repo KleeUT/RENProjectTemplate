@@ -7,26 +7,25 @@ module.exports = {
       path: __dirname + '/server/public/',
         filename: "bundle.js"
     },
-    module: {
-        loaders: [
-            { test: /\.jsx$/, loaders: ['jsx-loader'], exclude: /node_modules/},
-            { test: /\.js?$/, loaders: ['babel'], exclude: /node_modules/ },
-            { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-            { test: /\.css$/, loader: "style!css" },
-            { test: /\.woff$/,   loader: "url-loader?limit=10000&minetype=application/font-woff" },
-            { test: /\.woff2$/,   loader: "url-loader?limit=10000&minetype=application/font-woff" },
-            { test: /\.ttf$/,    loader: "file-loader" },
-            { test: /\.eot$/,    loader: "file-loader" },
-            { test: /\.svg$/,    loader: "file-loader" },
-            { test: /\.ico$/,    loader: "file-loader" }
-        ]
-    },
-    plugins: [
-      new webpack.NoErrorsPlugin(),
-      new webpack.ProvidePlugin({
-         $: "jquery",
-         jQuery: "jquery"
-     })
-   ]
-
+      module: {
+    loaders: [
+        {
+            test: /.jsx?$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: {
+                presets: ['es2015', 'react']
+            }
+        },
+        { test: /\.css$/, loader: 'style-loader!css-loader' },
+        { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+        { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
+        { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+        { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
+    ],
+  },
+   externals:{
+     "$":"$",
+     "jQuery":"jQuery",
+   }
 };
