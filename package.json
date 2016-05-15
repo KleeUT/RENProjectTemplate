@@ -30,9 +30,11 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "bootstrap-webpack": "0.0.5",
+    "express": "^4.13.4",
     "jquery": "^2.2.1",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
+    "morgan": "^1.7.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.1"

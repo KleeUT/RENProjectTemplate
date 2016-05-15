@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var Morgan = require('morgan');
+app.use(Morgan('dev'));
 
 app.get('/test', function(request, response){
   response.send("Hello World");
